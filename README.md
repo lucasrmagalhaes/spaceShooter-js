@@ -6,7 +6,7 @@
     />
   </a>
   <br>
-  Jogo no estilo Space Shooter em JavaScript.
+  Jogo no estilo Space Shooter :alien: em JS.
 </p>
 
 <hr>
@@ -18,6 +18,8 @@
 </p>
 
 <hr>
+
+<h3 align="center">Fontes do Projeto:</h3>
 
 <p align="left">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://web.digitalinnovation.one/home">Desafio prático realizado na plataforma Digital Innovation One.</a><br>
