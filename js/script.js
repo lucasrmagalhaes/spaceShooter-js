@@ -1,5 +1,6 @@
 const yourShip = document.querySelector('.player-shooter');
 const playArea = document.querySelector('#main-play-area');
+const aliensImg = ['img/monster-1.png', 'img/monster-2.png', 'img/monster-3.png'];
 
 // Movimento e tiro da nave.
 function flyShip(event) {
@@ -56,6 +57,7 @@ function fireLaser() {
 
 }
 
+// Função de criação do laser.
 function createLaserElement() {
 
     let xPosition = parseInt(window.getComputedStyle(yourShip).getPropertyValue('left'));
@@ -71,6 +73,7 @@ function createLaserElement() {
 
 }
 
+// Função de movimento do laser.
 function moveLaser(laser) {
 
     let laserInterval = setInterval(() => {
@@ -85,6 +88,24 @@ function moveLaser(laser) {
 
     }, 10);
     
+}
+
+// Função para criar inimigos aleatórios.
+function createAliens() {
+
+    let newAlien = document.createElement('img');
+    let alienSprite = aliensImg[Math.floor(Math.random() * aliensImg.length)]; // Sorteio de imagens.
+
+    newAlien.src = alienSprite;
+    newAlien.classList.add('alien');
+    newAlien.classList.add('alien-transition');
+    newAlien.style.left ='370px';
+    newAlien.style.top = `${Math.floor(Math.random() * 330) + 30}px`;
+
+    playArea.appendChild(newAlien);
+    
+    moveAlien(newAlien);
+
 }
 
 window.addEventListener('keydown', flyShip);
