@@ -14,7 +14,7 @@ function flyShip(event) {
         event.preventDefault();
         fireLaser();
     }
-    
+
 }
 
 // Função de subir.
@@ -31,3 +31,20 @@ function moveUp() {
     }
 
 }
+
+// Função de descer.
+function moveDown() {
+
+    let topPosition = getComputedStyle(yourShip).getPropertyValue('top');
+
+    if(topPosition === "450px") {
+        return
+    } else {
+        let position = parseInt(topPosition);
+        position += 50;
+        yourShip.style.top = `${position}px`;
+    }
+
+}
+
+window.addEventListener('keydown', flyShip);
