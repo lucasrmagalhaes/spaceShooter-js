@@ -1,5 +1,5 @@
 const yourShip = document.querySelector('.player-shooter');
-const playArea = document.querySelector('#main-play-game');
+const playArea = document.querySelector('#main-play-area');
 
 // Movimento e tiro da nave.
 function flyShip(event) {
@@ -51,9 +51,7 @@ function moveDown() {
 function fireLaser() {
     
     let laser = createLaserElement();
-    
     playArea.appendChild(laser);
-    
     moveLaser();
 
 }
@@ -64,13 +62,29 @@ function createLaserElement() {
     let yPosition = parseInt(window.getComputedStyle(yourShip).getPropertyValue('top'));
     let newLaser = document.createElement('img');
     
-    newLaser.scr = '../img/shoot.png';
+    newLaser.src = 'img/shoot.png';
     newLaser.classList.add('laser');
     newLaser.style.left = `${xPosition}px`;
     newLaser.style.top = `${yPosition - 10}px`;
     
     return newLaser;
 
+}
+
+function moveLaser(laser) {
+
+    let laserInterval = setInterval(() => {
+
+        let xPosition = parseInt(laser.style.left);
+
+        if(xPosition === 340) {
+            laser.remove();
+        } else {
+            laser.style.left = `${xPosition + 8}px`;
+        }
+
+    }, 10);
+    
 }
 
 window.addEventListener('keydown', flyShip);
